@@ -19,6 +19,7 @@ module.exports = {
         brand: {
           primary: "#FF48B6",
           secondary: "#5C2D2D",
+          border: "#E4E6EB"
         },
       },
       spacing: {

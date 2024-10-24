@@ -22,7 +22,7 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body class="pt-7.5">
+  <body class="pt-7.5 pb-28">
     <!-- Header -->
     <header class="mb-7.5 container">
       <!-- Navbar -->
@@ -84,7 +84,7 @@
       { id: 3, title: 'wedding 3', url: './assets/images/image 3.png' },
   ], activePhoto: 2
 }"
-      class="container"
+      class="mb-7.5 container"
     >
       <div class="mb-7.5 flex items-center justify-between">
         <div class="flex flex-col items-start space-y-2.5">
@@ -118,7 +118,7 @@
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
-                  height="23"
+                  height="24"
                   viewBox="0 0 24 23"
                   fill="none"
                 >
@@ -134,13 +134,11 @@
         </div>
       </div>
       <div class="flex space-x-5">
-        <!-- FIXME: use alpine directive to show background image -->
-        <div
-          class="rounded-30 relative h-full min-h-[550px] w-full bg-cover bg-center"
-          style="
-            background-image: url(&quot;./assets/images/image\ 1.png&quot;);
-          "
-        >
+        <div class="relative h-[550px] w-full">
+          <img
+            :src="photos.find(p => p.id === activePhoto).url"
+            class="rounded-30 h-full w-full object-cover"
+          />
           <div
             class="absolute left-5 top-5 inline-flex items-center rounded-full bg-white px-4 py-2.5 text-center font-bold uppercase text-black"
           >
@@ -231,5 +229,214 @@
         </div>
       </div>
     </section>
+
+    <section class="container" x-data>
+      <div class="flex items-start gap-x-[50px]">
+        <div class="grow">
+          <h3 class="mb-2.5 text-xl font-bold">It’s a Good Package</h3>
+          <p class="mb-7.5 leading-9">
+            Our exclusive wedding package offers an unforgettable celebration
+            tailored to your dreams. Enjoy a stunning venue, elegant
+            decorations, and a delectable gourmet menu crafted by top chefs.
+            Capture every precious moment with professional photography and
+            videography. Dance the night away with a live band or DJ. Our
+            dedicated event planner ensures every detail is perfect, from
+            personalized invitations to a luxurious bridal suite. Experience a
+            magical day filled with love and joy, creating memories.
+          </p>
+          <h3 class="mb-4 text-xl font-bold">Bonus Included</h3>
+          <div
+            x-data="{bonus : [
+          {id: 1,name: 'Pre Post Wedding Photography Album', image: './assets/images/image 4.png'},
+          {id: 2,name: 'Honeymoon Villa', image: './assets/images/image 5.png'}
+          ],
+          activeBonus: 1
+        }"
+            class="mb-7.5 flex flex-col gap-y-4"
+          >
+            <template x-for="b in bonus" :key="b.id">
+              <div
+                class="border-brand-border rounded-30 flex items-center justify-between gap-x-5 border p-5"
+              >
+                <img
+                  :src="b.image"
+                  :alt="b.name"
+                  class="h-[130px] w-[170px] rounded-[20px] object-cover"
+                />
+                <div class="grow">
+                  <h2
+                    class="mb-2.5 max-w-64 text-xl font-bold"
+                    x-text="b.name"
+                  ></h2>
+                  <p class="text-brand-primary">
+                    <b>Rp 0</b>/package
+                    <span class="text-black line-through">Rp 680.000.000</span>
+                  </p>
+                </div>
+                <button
+                  x-on:click="activeBonus = b.id"
+                  data-modal-target="default-modal"
+                  data-modal-toggle="default-modal"
+                  type="button"
+                  class="rounded-full border border-black px-5 py-2.5 text-center text-sm font-semibold text-black hover:border-brand-primary hover:bg-brand-primary/90 hover:text-white focus:outline-none focus:ring-4 focus:ring-pink-200"
+                >
+                  View Details
+                </button>
+              </div>
+            </template>
+            <div
+              id="default-modal"
+              tabindex="-1"
+              aria-hidden="true"
+              class="fixed left-0 right-0 top-0 z-50 hidden h-full max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-black/80 md:inset-0"
+            >
+              <div class="relative max-h-full w-full p-4">
+                <!-- Modal content -->
+                <div class="rounded-30 mx-auto max-w-[730px] bg-white p-5">
+                  <img
+                    :src="bonus.find(b => b.id === activeBonus).image"
+                    alt=""
+                    class="mb-5 max-h-[350px] w-full rounded-[20px] object-cover"
+                  />
+                  <h3
+                    class="mb-2.5 text-xl font-semibold"
+                    x-text="bonus.find(b => b.id === activeBonus).name"
+                  ></h3>
+                  <p class="text-brand-primary">
+                    <b>Rp 0</b>/package
+                    <span class="text-black line-through">Rp 680.000.000</span>
+                  </p>
+                  <div class="border-brand-border my-6 border-t"></div>
+                  <h5 class="mb-2.5 font-bold">About</h5>
+                  <p class="leading-9">
+                    Our exclusive wedding package offers an unforgettable
+                    celebration tailored to your dreams. Enjoy a stunning venue,
+                    elegant decorations, and a delectable gourmet menu crafted
+                    by top chefs. Capture every precious moment with
+                    professional photography and videography. Dance the night
+                    away with a live band or DJ.
+                  </p>
+                  <div class="border-brand-border my-6 border-t"></div>
+                  <button
+                    type="button"
+                    class="rounded-full border border-black px-5 py-2.5 text-center text-sm font-semibold text-black hover:border-brand-primary hover:bg-brand-primary/90 hover:text-white focus:outline-none focus:ring-4 focus:ring-pink-200"
+                    data-modal-hide="default-modal"
+                  >
+                    Close Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-5 flex items-center justify-between">
+            <h3 class="text-xl font-bold">Wedding Testimonials</h3>
+            <button
+              type="button"
+              class="rounded-full border border-black px-5 py-2.5 text-center text-sm font-semibold text-black hover:border-brand-primary hover:bg-brand-primary/90 hover:text-white focus:outline-none focus:ring-4 focus:ring-pink-200"
+            >
+              Explore All
+            </button>
+          </div>
+          <div
+            class="flex gap-x-5"
+            x-data="{testimonials: [{id: 1, photo: './assets/images/user 1.png'}, {id: 2, photo: './assets/images/user 2.png'}]}"
+          >
+            <template x-for="testi in testimonials" :key="testi.id">
+              <div
+                class="border-brand-border flex grow flex-col gap-y-5 rounded-[20px] border p-5"
+              >
+                <ul class="flex space-x-1">
+                  <template x-for="i in 5">
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 23"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 0.5L14.6942 8.7918H23.4127L16.3593 13.9164L19.0534 22.2082L12 17.0836L4.94658 22.2082L7.64074 13.9164L0.587322 8.7918H9.30583L12 0.5Z"
+                          fill="#FFA740"
+                        />
+                      </svg>
+                    </li>
+                  </template>
+                </ul>
+                <p class="leading-7">
+                  Keren banget Samawa, gue bisa nikah dengan pengalaman bagus
+                  dengan harga terjangkau! God.
+                </p>
+                <div class="flex gap-x-3">
+                  <img :src="testi.photo" alt="bwa" class="size-[50px]" />
+                  <div>
+                    <p class="mb-0.5 font-bold">Andriana Putri</p>
+                    <span class="text-sm">Programmer</span>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+        <div
+          class="border-brand-border rounded-30 p-7.5 flex max-w-[350px] flex-shrink-0 flex-col gap-5 border"
+        >
+          <h2 class="text-3xl font-bold text-brand-primary">Rp 198.493.000</h2>
+          <div class="border-brand-border border-t"></div>
+          <ul class="flex list-inside flex-col gap-y-5">
+            <template x-for="i in 3">
+              <li class="flex items-center font-normal">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  class="me-3 flex-shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    opacity="0.4"
+                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                    fill="#FF48B6"
+                  />
+                  <path
+                    d="M10.58 15.58C10.38 15.58 10.19 15.5 10.05 15.36L7.22 12.53C6.93 12.24 6.93 11.76 7.22 11.47C7.51 11.18 7.99 11.18 8.28 11.47L10.58 13.77L15.72 8.62998C16.01 8.33998 16.49 8.33998 16.78 8.62998C17.07 8.91998 17.07 9.39998 16.78 9.68998L11.11 15.36C10.97 15.5 10.78 15.58 10.58 15.58Z"
+                    fill="#FF48B6"
+                  />
+                </svg>
+                Lorem ipsum dolor si amet nikah berkah dunia kita
+              </li></template
+            >
+          </ul>
+          <div class="border-brand-border border-t"></div>
+          <div>
+            <p class="mb-3 font-bold">Wedding Organizer</p>
+            <div
+              class="border-brand-border flex gap-x-3 rounded-2xl border p-3 hover:cursor-pointer"
+            >
+              <img
+                src="./assets/images/logo_buildwithangga.png"
+                alt="bwa"
+                class="size-[50px]"
+              />
+              <div>
+                <p class="mb-0.5 font-bold">Dua Putri</p>
+                <span class="text-sm">194 Packages</span>
+              </div>
+            </div>
+          </div>
+          <div class="border-brand-border border-t"></div>
+          <button
+            type="button"
+            class="rounded-full bg-brand-primary px-5 py-3.5 text-center font-semibold text-white hover:bg-brand-primary/90 focus:outline-none focus:ring-4 focus:ring-pink-200"
+          >
+            Choose This Package
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   </body>
 </html>
