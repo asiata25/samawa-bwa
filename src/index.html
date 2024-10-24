@@ -14,19 +14,19 @@
       rel="stylesheet"
     />
 
+    <link href="./style/output.css" rel="stylesheet" />
+
     <!-- Alpine.js -->
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-
-    <link href="./style/output.css" rel="stylesheet" />
   </head>
   <body class="pt-7.5">
     <!-- Header -->
-    <header>
+    <header class="mb-7.5 container">
       <!-- Navbar -->
-      <nav class="mb-7.5 container">
+      <nav>
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <img src="./assets/logo.png" class="me-[11px] size-10" /><span
@@ -37,7 +37,7 @@
           <div class="grow">
             <ul
               x-data="{ pages: [
-              { id: 1, label: 'Home', active: true },
+              { id: 1, label: 'Home', active: false },
               { id: 2, label: 'Category', active: false },
               { id: 3, label: 'Packages', active: false },
               { id: 4, label: 'Testimonials', active: false },
@@ -76,5 +76,160 @@
       <!-- #Navbar -->
     </header>
     <!-- #Header -->
+
+    <section
+      x-data="{ photos: [
+      { id: 1, title: 'wedding 1', url: './assets/images/image 2.png' },
+      { id: 2, title: 'wedding 2', url: './assets/images/image 1.png' },
+      { id: 3, title: 'wedding 3', url: './assets/images/image 3.png' },
+  ], activePhoto: 2
+}"
+      class="container"
+    >
+      <div class="mb-7.5 flex items-center justify-between">
+        <div class="flex flex-col items-start space-y-2.5">
+          <h1 class="text-[40px] font-bold">
+            Nikah Muda Abadi Pantai Bali Nusa
+          </h1>
+          <div class="flex justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                opacity="0.4"
+                d="M20.62 8.95C19.57 4.33 15.54 2.25 12 2.25C12 2.25 12 2.25 11.99 2.25C8.45997 2.25 4.41997 4.32 3.36997 8.94C2.19997 14.1 5.35997 18.47 8.21997 21.22C9.27997 22.24 10.64 22.75 12 22.75C13.36 22.75 14.72 22.24 15.77 21.22C18.63 18.47 21.79 14.11 20.62 8.95Z"
+                fill="#5C2D2D"
+              />
+              <path
+                d="M12 13.96C13.7397 13.96 15.15 12.5497 15.15 10.81C15.15 9.07034 13.7397 7.66003 12 7.66003C10.2603 7.66003 8.84998 9.07034 8.84998 10.81C8.84998 12.5497 10.2603 13.96 12 13.96Z"
+                fill="#5C2D2D"
+              /></svg
+            ><span class="ms-1.5 text-lg font-bold">Luxemborgio City</span>
+          </div>
+        </div>
+        <div class="flex flex-col items-end space-y-2">
+          <ul class="flex space-x-1">
+            <template x-for="i in 5">
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="23"
+                  viewBox="0 0 24 23"
+                  fill="none"
+                >
+                  <path
+                    d="M12 0.5L14.6942 8.7918H23.4127L16.3593 13.9164L19.0534 22.2082L12 17.0836L4.94658 22.2082L7.64074 13.9164L0.587322 8.7918H9.30583L12 0.5Z"
+                    fill="#FFA740"
+                  />
+                </svg>
+              </li>
+            </template>
+          </ul>
+          <span class="font-bold">(18,493)</span>
+        </div>
+      </div>
+      <div class="flex space-x-5">
+        <!-- FIXME: use alpine directive to show background image -->
+        <div
+          class="rounded-30 relative h-full min-h-[550px] w-full bg-cover bg-center"
+          style="
+            background-image: url(&quot;./assets/images/image\ 1.png&quot;);
+          "
+        >
+          <div
+            class="absolute left-5 top-5 inline-flex items-center rounded-full bg-white px-4 py-2.5 text-center font-bold uppercase text-black"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              class="me-2"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                opacity="0.4"
+                d="M16.77 18.98H7.23C6.81 18.98 6.43 18.71 6.29 18.32L2.13 6.67004C1.8 5.74004 2.86 4.95004 3.65 5.52004L7.65 8.38004C8.18 8.76004 8.94 8.53004 9.17 7.92004L11.06 2.88004C11.38 2.01004 12.61 2.01004 12.93 2.88004L14.82 7.92004C15.05 8.54004 15.8 8.76004 16.34 8.38004L20.34 5.52004C21.14 4.95004 22.19 5.75004 21.86 6.67004L17.7 18.32C17.57 18.71 17.19 18.98 16.77 18.98Z"
+                fill="#FF48B6"
+              />
+              <path
+                d="M17 22H7C6.59 22 6.25 21.66 6.25 21.25C6.25 20.84 6.59 20.5 7 20.5H17C17.41 20.5 17.75 20.84 17.75 21.25C17.75 21.66 17.41 22 17 22Z"
+                fill="#FF48B6"
+              />
+              <path
+                d="M14.5 14.75H9.5C9.09 14.75 8.75 14.41 8.75 14C8.75 13.59 9.09 13.25 9.5 13.25H14.5C14.91 13.25 15.25 13.59 15.25 14C15.25 14.41 14.91 14.75 14.5 14.75Z"
+                fill="#FF48B6"
+              />
+            </svg>
+            Popular
+          </div>
+          <div
+            class="absolute bottom-5 left-5 inline-flex items-center rounded-full bg-white px-4 py-2.5 text-center font-bold uppercase text-black"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              class="me-2"
+            >
+              <path
+                opacity="0.4"
+                d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z"
+                fill="#FF48B6"
+              />
+              <path
+                d="M15.8001 2.20999C15.3901 1.79999 14.6801 2.07999 14.6801 2.64999V6.13999C14.6801 7.59999 15.9201 8.80999 17.4301 8.80999C18.3801 8.81999 19.7001 8.81999 20.8301 8.81999C21.4001 8.81999 21.7001 8.14999 21.3001 7.74999C19.8601 6.29999 17.2801 3.68999 15.8001 2.20999Z"
+                fill="#FF48B6"
+              />
+              <path
+                d="M12.2799 14.72C11.9899 14.43 11.5099 14.43 11.2199 14.72L10.4999 15.44V11.25C10.4999 10.84 10.1599 10.5 9.74994 10.5C9.33994 10.5 8.99994 10.84 8.99994 11.25V15.44L8.27994 14.72C7.98994 14.43 7.50994 14.43 7.21994 14.72C6.92994 15.01 6.92994 15.49 7.21994 15.78L9.21994 17.78C9.22994 17.79 9.23994 17.79 9.23994 17.8C9.29994 17.86 9.37994 17.91 9.45994 17.95C9.55994 17.98 9.64994 18 9.74994 18C9.84994 18 9.93994 17.98 10.0299 17.94C10.1199 17.9 10.1999 17.85 10.2799 17.78L12.2799 15.78C12.5699 15.49 12.5699 15.01 12.2799 14.72Z"
+                fill="#FF48B6"
+              />
+            </svg>
+            BROCHURE .PDF
+          </div>
+          <div
+            class="absolute bottom-5 right-5 inline-flex items-center rounded-full bg-white px-4 py-2.5 text-center font-bold uppercase text-black"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              class="me-2"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                opacity="0.4"
+                d="M11.97 22C17.4928 22 21.97 17.5228 21.97 12C21.97 6.47715 17.4928 2 11.97 2C6.44712 2 1.96997 6.47715 1.96997 12C1.96997 17.5228 6.44712 22 11.97 22Z"
+                fill="#FF48B6"
+              />
+              <path
+                d="M14.97 10.23L12.07 8.56C11.35 8.14 10.48 8.14 9.75999 8.56C9.03999 8.98 8.60999 9.72 8.60999 10.56V13.91C8.60999 14.74 9.03999 15.49 9.75999 15.91C10.12 16.12 10.52 16.22 10.91 16.22C11.31 16.22 11.7 16.12 12.06 15.91L14.96 14.24C15.68 13.82 16.11 13.08 16.11 12.24C16.13 11.4 15.7 10.65 14.97 10.23Z"
+                fill="#FF48B6"
+              />
+            </svg>
+            VIRTUAL 360
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-5">
+          <template x-for="photo in photos" :key="photo.id">
+            <img
+              :src="photo.url"
+              alt="wedding dream 2"
+              class="h-[170px] max-w-[280px] rounded-3xl object-cover hover:cursor-pointer hover:border-[3px] hover:border-brand-primary"
+              :class="photo.id === activePhoto && 'border-[3px] border-brand-primary'"
+            />
+          </template>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

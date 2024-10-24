@@ -24,6 +24,9 @@ module.exports = {
       spacing: {
         7.5: "30px",
       },
+      borderRadius: {
+        30: "30px",
+      },
     },
   },
   plugins: [],
