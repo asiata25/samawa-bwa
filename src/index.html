@@ -22,9 +22,9 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body class="pt-7.5 pb-28">
+  <body class="pb-28 pt-7.5">
     <!-- Header -->
-    <header class="mb-7.5 container">
+    <header class="container mb-7.5">
       <!-- Navbar -->
       <nav>
         <div class="flex items-center justify-between">
@@ -84,7 +84,7 @@
       { id: 3, title: 'wedding 3', url: './assets/images/image 3.png' },
   ], activePhoto: 2
 }"
-      class="mb-7.5 container"
+      class="container mb-7.5"
     >
       <div class="mb-7.5 flex items-center justify-between">
         <div class="flex flex-col items-start space-y-2.5">
@@ -137,7 +137,7 @@
         <div class="relative h-[550px] w-full">
           <img
             :src="photos.find(p => p.id === activePhoto).url"
-            class="rounded-30 h-full w-full object-cover"
+            class="h-full w-full rounded-30 object-cover"
           />
           <div
             class="absolute left-5 top-5 inline-flex items-center rounded-full bg-white px-4 py-2.5 text-center font-bold uppercase text-black"
@@ -231,7 +231,7 @@
     </section>
 
     <section class="container" x-data>
-      <div class="flex items-start gap-x-[50px]">
+      <div class="flex items-start gap-x-12.5">
         <div class="grow">
           <h3 class="mb-2.5 text-xl font-bold">It’s a Good Package</h3>
           <p class="mb-7.5 leading-9">
@@ -256,12 +256,12 @@
           >
             <template x-for="b in bonus" :key="b.id">
               <div
-                class="border-brand-border rounded-30 flex items-center justify-between gap-x-5 border p-5"
+                class="flex items-center justify-between gap-x-5 rounded-30 border border-brand-border p-5"
               >
                 <img
                   :src="b.image"
                   :alt="b.name"
-                  class="h-[130px] w-[170px] rounded-[20px] object-cover"
+                  class="rounded-20 h-[130px] w-[170px] object-cover"
                 />
                 <div class="grow">
                   <h2
@@ -292,11 +292,11 @@
             >
               <div class="relative max-h-full w-full p-4">
                 <!-- Modal content -->
-                <div class="rounded-30 mx-auto max-w-[730px] bg-white p-5">
+                <div class="mx-auto max-w-[730px] rounded-30 bg-white p-5">
                   <img
                     :src="bonus.find(b => b.id === activeBonus).image"
                     alt=""
-                    class="mb-5 max-h-[350px] w-full rounded-[20px] object-cover"
+                    class="rounded-20 mb-5 max-h-[350px] w-full object-cover"
                   />
                   <h3
                     class="mb-2.5 text-xl font-semibold"
@@ -306,7 +306,7 @@
                     <b>Rp 0</b>/package
                     <span class="text-black line-through">Rp 680.000.000</span>
                   </p>
-                  <div class="border-brand-border my-6 border-t"></div>
+                  <div class="my-6 border-t border-brand-border"></div>
                   <h5 class="mb-2.5 font-bold">About</h5>
                   <p class="leading-9">
                     Our exclusive wedding package offers an unforgettable
@@ -316,7 +316,7 @@
                     professional photography and videography. Dance the night
                     away with a live band or DJ.
                   </p>
-                  <div class="border-brand-border my-6 border-t"></div>
+                  <div class="my-6 border-t border-brand-border"></div>
                   <button
                     type="button"
                     class="rounded-full border border-black px-5 py-2.5 text-center text-sm font-semibold text-black hover:border-brand-primary hover:bg-brand-primary/90 hover:text-white focus:outline-none focus:ring-4 focus:ring-pink-200"
@@ -343,7 +343,7 @@
           >
             <template x-for="testi in testimonials" :key="testi.id">
               <div
-                class="border-brand-border flex grow flex-col gap-y-5 rounded-[20px] border p-5"
+                class="rounded-20 flex grow flex-col gap-y-5 border border-brand-border p-5"
               >
                 <ul class="flex space-x-1">
                   <template x-for="i in 5">
@@ -368,7 +368,7 @@
                   dengan harga terjangkau! God.
                 </p>
                 <div class="flex gap-x-3">
-                  <img :src="testi.photo" alt="bwa" class="size-[50px]" />
+                  <img :src="testi.photo" alt="bwa" class="size-12.5" />
                   <div>
                     <p class="mb-0.5 font-bold">Andriana Putri</p>
                     <span class="text-sm">Programmer</span>
@@ -379,10 +379,10 @@
           </div>
         </div>
         <div
-          class="border-brand-border rounded-30 p-7.5 flex max-w-[350px] flex-shrink-0 flex-col gap-5 border"
+          class="flex max-w-[350px] flex-shrink-0 flex-col gap-5 rounded-30 border border-brand-border p-7.5"
         >
           <h2 class="text-3xl font-bold text-brand-primary">Rp 198.493.000</h2>
-          <div class="border-brand-border border-t"></div>
+          <div class="border-t border-brand-border"></div>
           <ul class="flex list-inside flex-col gap-y-5">
             <template x-for="i in 3">
               <li class="flex items-center font-normal">
@@ -408,16 +408,16 @@
               </li></template
             >
           </ul>
-          <div class="border-brand-border border-t"></div>
+          <div class="border-t border-brand-border"></div>
           <div>
             <p class="mb-3 font-bold">Wedding Organizer</p>
             <div
-              class="border-brand-border flex gap-x-3 rounded-2xl border p-3 hover:cursor-pointer"
+              class="flex gap-x-3 rounded-2xl border border-brand-border p-3 hover:cursor-pointer"
             >
               <img
                 src="./assets/images/logo_buildwithangga.png"
                 alt="bwa"
-                class="size-[50px]"
+                class="size-12.5"
               />
               <div>
                 <p class="mb-0.5 font-bold">Dua Putri</p>
@@ -425,7 +425,7 @@
               </div>
             </div>
           </div>
-          <div class="border-brand-border border-t"></div>
+          <div class="border-t border-brand-border"></div>
           <button
             type="button"
             class="rounded-full bg-brand-primary px-5 py-3.5 text-center font-semibold text-white hover:bg-brand-primary/90 focus:outline-none focus:ring-4 focus:ring-pink-200"
